@@ -1,0 +1,27 @@
+.landing-container {
+  height: 100vh;
+  background: url("https://static.wixstatic.com/media/b95924_1066780e555e4601ba990f07287b92e1~mv2.png/v1/fill/w_640,h_714,al_c,q_90,usm_2.00_1.00_0.00,enc_avif,quality_auto/b95924_1066780e555e4601ba990f07287b92e1~mv2.png")
+    center/cover no-repeat;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-content {
+  color: white;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  max-width: 600px;
+  text-align: center;
+ 
+}
+
+.landing-content h1 {
+  font-size: 3.6rem;
+  margin-bottom: 20px;
+}
+
+form {
+  max-resolution: ;
+}
