@@ -28,7 +28,7 @@ function MainNavbar({ onLogout }) {
         <NavLink to="/new-popular" className="nav-link">New & Popular</NavLink>
 
         
-        <button className="logout-btn mobile-logout" onClick={onLogout}>
+        <button className="logouts-btn mobile-logout" onClick={onLogout}>
           Logout
         </button>
       </div>

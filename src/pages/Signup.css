@@ -99,7 +99,7 @@
 
 .password-wrapper {
   position: relative;
-  width: 375px;
+  width: 315px;
 }
 
 .password-wrapper input {
@@ -122,7 +122,7 @@
 
 .password-toggle-icon {
   position: absolute;
-  right: 12px;
+  left: 21rem;
   top: 70%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -143,14 +143,14 @@
   }
 
   .signup-form {
-    width: 100%;
+    width: 290px;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     padding: 20px 25px;
-    top: 15%;
-    left: 0;
+    top: 20%;
+    left: 9px;
     transform: translate(-0%, -0%);
   }
 
@@ -175,11 +175,12 @@
 
   .password-toggle-icon {
     font-size: 22px;
-    right: -10px;
+    left: 18rem;
+   
   }
 
   .creating-btn {
-    width: 374px;
+    width: 312px;
     padding: 12px;
   }
 }
