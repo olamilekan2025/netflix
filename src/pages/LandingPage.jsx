@@ -1,6 +1,7 @@
 import React from "react";
 import LandingNavbar from "../components/LandingNavbar";
 import { useNavigate } from "react-router-dom";
+import { FaAnglesRight } from "react-icons/fa6";
 import "./LandingPage.css";
 
 function LandingPage() {
@@ -31,7 +32,7 @@ function LandingPage() {
               placeholder="Enter your email"
               required
             />
-            <button type="submit">GET STARTED</button>
+            <button type="submit">Get Stated <FaAnglesRight /></button>
           </div>
         </form>
       </div>

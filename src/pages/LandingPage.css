@@ -14,7 +14,6 @@
   left: 25%;
   max-width: 600px;
   text-align: center;
- 
 }
 
 .landing-content h1 {
@@ -22,6 +21,101 @@
   margin-bottom: 20px;
 }
 
-form {
-  max-resolution: ;
+.email-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.form-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+
+@media screen and (max-width: 896px) {
+  .landing-content {
+    width: 100%;
+    top: 15%;
+    left: 0;
+  }
+  .landing-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .email-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+}
+
+.form-combination {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  gap: 10px;
+}
+
+.form-combination input {
+  flex: 1;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+  backdrop-filter: blur(5px);
+  background-color: transparent;
+  border: 1.1px solid #fff;
+}
+
+.form-combination input::placeholder {
+  color: #888;
+}
+
+.form-combination button {
+  padding: 15px 25px;
+  font-size: 18px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-combination button:hover {
+  background-color: #f6121d;
+}
+
+@media (max-width: 896px) {
+  .form-combination {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-combination input {
+    width: 87%;
+  }
+  .form-combination button {
+    border-radius: 5px;
+    width: 60%;
+  }
 }

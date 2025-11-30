@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import { useNavigate, Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";   
 import useAuthStore from "../store/authStore"; 
 import "./Signup.css";
 import logo from "../assets/Netflex-removebg-preview.png";
@@ -15,6 +16,7 @@ function Signup() {
   });
 
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,16 +63,26 @@ function Signup() {
           required
         />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
+       
+        <div className="password-wrapper">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit" className="signup-btn">Sign Up</button>
+          <span
+            className="password-toggle-icon"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
+        </div>
+
+        <button type="submit" className="creating-btn">Sign Up</button>
 
         <p className="login-link">
           Already have an account? <Link to="/login">Login</Link>
@@ -81,4 +93,9 @@ function Signup() {
 }
 
 export default Signup;
+
+
+
+
+
 
