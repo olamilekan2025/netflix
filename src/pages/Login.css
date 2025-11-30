@@ -77,12 +77,13 @@ form > .login-to-home-btn {
 
 .login-password-wrapper {
   position: relative;
-  width: 350px;
+  width: 340px;
 }
 
 .login-password-wrapper input {
-  width: 84%;
-  padding-right: 50px;
+  width: 100%;
+   padding: 12px 5px 12px 10px;
+ 
 }
 
 .password-toggle-icon {
@@ -97,12 +98,27 @@ form > .login-to-home-btn {
 
 @media screen and (max-width: 896px) {
   .login-form {
-    width: 80%;
+    width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 20px 26px;
+    padding: 20px 25px;
+    left: 0;
+    top: 15%;
+      transform: translate(-0%, -0%);
+  
+  }
+
+  .login-logo  {
+    left: 1px;
+  }
+
+
+  .login-form h1 {
+     width: 100%;
+    text-align: start;
+    margin-right: 20px;
   }
 
   .login-btn {
@@ -110,12 +126,20 @@ form > .login-to-home-btn {
   }
 
   form > .login-to-home-btn {
-    width: 200px;
+    width: 380px;
   }
 
   .login-password-wrapper {
-    width: 300px;
-    margin-right: 10px;
+    width: 100%;
+    margin-right: 25px;
+   
+  }
+
+  .login-password-wrapper input {
+    width: 100%;
+    padding: 12px 13px 12px 10px;
+   
+
   }
 }
 

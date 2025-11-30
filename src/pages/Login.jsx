@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuthStore from "../store/authStore";
+import { Link } from "react-router-dom";
 import "./Login.css";
 import logo from "../assets/Netflex-removebg-preview.png";
 
@@ -34,7 +35,10 @@ function Login() {
 
   return (
     <div className="login-container">
-      <img src={logo} alt="Netflix Logo" className="login-logo" />
+<Link to="/signup">
+  <img src={logo} alt="Netflix Logo" className="login-logo" />
+</Link>
+
 
       <form className="login-form" onSubmit={handleSubmit}>
         <h1>Sign In</h1>

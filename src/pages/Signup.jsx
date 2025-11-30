@@ -38,10 +38,12 @@ function Signup() {
 
   return (
     <div className="signup-container">
-      <img src={logo} alt="Netflix Logo" className="signup-logo" />
+      <Link to="/home">
+        <img src={logo} alt="Netflix Logo" className="signup-logo" />
+      </Link>
 
       <form className="signup-form" onSubmit={handleSubmit}>
-        <h1>Create Account</h1>
+        <h1>Sign Up</h1>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
 
