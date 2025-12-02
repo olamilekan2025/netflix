@@ -5,17 +5,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import useAuthStore from "./store/authStore";
-
 import LandingPage from "./pages/LandingPage";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-
 import Shows from "./pages/Shows";
 import Movies from "./pages/Movies";
 import NewPopular from "./pages/NewPopular";
-
 import ProtectedRoute from "./components/ProtectedRoute";
+import Footer from "./components/Footer"
 
 function App() {
   const logout = useAuthStore((state) => state.logout);
@@ -35,6 +33,7 @@ function App() {
           element={
             <ProtectedRoute>
               <Home onLogout={logout} />
+              <Footer/>
             </ProtectedRoute>
           }
         />
@@ -44,6 +43,7 @@ function App() {
           element={
             <ProtectedRoute>
                 <Shows onLogout={logout} />
+                <Footer/>
             </ProtectedRoute>
           }
         />
@@ -53,6 +53,7 @@ function App() {
           element={
             <ProtectedRoute>
               <Movies onLogout={logout}/>
+              <Footer/>
             </ProtectedRoute>
           }
         />
@@ -62,6 +63,7 @@ function App() {
           element={
             <ProtectedRoute>
               <NewPopular onLogout={logout} />
+              <Footer/>
             </ProtectedRoute>
           }
         />
