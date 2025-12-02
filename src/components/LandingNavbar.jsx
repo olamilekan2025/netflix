@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; 
-import logo from "../assets/Netflex-removebg-preview.png";
+import logo from "../assets/25cdbe40-0c0a-492a-b822-f653bc3c94f0-removebg-preview.png"
 import "./LandingNavbar.css";
 
 function LandingNavbar() {

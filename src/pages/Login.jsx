@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuthStore from "../store/authStore";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import logo from "../assets/Netflex-removebg-preview.png";
+import logo from "../assets/25cdbe40-0c0a-492a-b822-f653bc3c94f0-removebg-preview.png";
 
 function Login() {
   const navigate = useNavigate();

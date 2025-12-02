@@ -97,15 +97,16 @@ form > .login-to-home-btn {
 
 @media screen and (max-width: 896px) {
   .login-form {
-    width: 290px;
+    width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     padding: 20px 25px;
-    left: 9px;
-    top: 20%;
+    left: 0px;
+    top: 30%;
     transform: translate(-0%, -0%);
+  
   }
 
   .login-logo {
@@ -121,9 +122,10 @@ form > .login-to-home-btn {
   .login-btn {
     width: 80%;
   }
-
+  
   form > .login-to-home-btn {
-    width: 318px;
+    width: 395px;
+    
   }
 
   .login-password-wrapper {

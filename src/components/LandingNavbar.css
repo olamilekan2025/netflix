@@ -1,18 +1,19 @@
 .landing-nav {
   position: absolute;
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
   gap: 50rem;
+
 }
 
-.nav-logo {
-  width: 400px;
+.landing-nav .nav-logo {
+  width: 150px;
   display: flex;
-  height: 80px;
+  height: 100px;
+ 
 }
 
 .signup-btn {
@@ -23,6 +24,7 @@
   border: none;
   cursor: pointer;
   font-size: 16px;
+  margin-bottom: 40px;
 }
 
 @media (max-width: 896px) {

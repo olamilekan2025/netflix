@@ -143,14 +143,15 @@
   }
 
   .signup-form {
-    width: 290px;
+    /* width: 290px; */
+    width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     padding: 20px 25px;
     top: 20%;
-    left: 9px;
+    left: 0px;
     transform: translate(-0%, -0%);
   }
 
@@ -165,6 +166,7 @@
   .password-wrapper {
     margin-right: 25px;
     width: 100%;
+    
   }
 
   .password-wrapper input {
@@ -175,12 +177,12 @@
 
   .password-toggle-icon {
     font-size: 22px;
-    left: 18rem;
+    left: 23rem;
    
   }
 
   .creating-btn {
-    width: 312px;
+    width: 410px;
     padding: 12px;
   }
 }
