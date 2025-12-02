@@ -46,7 +46,6 @@ function Signup() {
         <h1>Sign Up</h1>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
-
         <input
           type="text"
           name="fullName"

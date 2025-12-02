@@ -1,88 +1,67 @@
 .login-container {
-  height: 100vh;
-  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/e7f3f02b-5850-4613-aa5e-82f87952628f/2e485472-cd9a-4cf3-8f16-4ed53daab8a3/NG-en-20230911-popsignuptwoweeks-perspective_alpha_website_large.jpg")
-    center/cover no-repeat;
-  position: relative;
-  font-family: Arial, sans-serif;
-}
-
-.gradient {
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  gap: 30px;
+  justify-content: flex-start;
+   background: rgba(255, 255, 255, 0.05);
+  color: white;
 }
 
 .login-logo {
   width: 160px;
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  z-index: 10;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .login-form {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.75);
-  padding: 50px;
-  border-radius: 5px;
-  width: 330px;
-  color: white;
-  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 10px 30px 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 }
 
 .login-form h1 {
-  margin-bottom: 20px;
+  color: white;
   text-align: center;
+  margin-bottom: 10px;
+  font-size: 28px;
 }
 
 .login-form input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  background: #333;
-  border: none;
-  border-radius: 4px;
+  width: 90%;
+  padding: 14px 0px 14px 37px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #111;
   color: white;
-  font-size: 14px;
+  font-size: 15px;
+  transition: border 0.2s ease;
 }
 
-.form-options {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-  font-size: 13px;
-  color: #b3b3b3;
+.login-form input::placeholder {
+  color: #bbb;
 }
 
-form > .login-to-home-btn {
-  width: 355px;
-  background-color: red;
-  margin-top: 10px;
-  font-size: 16px;
-  color: #fff;
-  text-align: center;
-  border: none;
-  padding: 12px;
-  border-radius: 5px;
-}
-
-.signup-text span:hover {
-  text-decoration: underline;
+.login-form input:focus {
+  border-color: #e50914;
+  outline: none;
 }
 
 .login-password-wrapper {
   position: relative;
-  width: 340px;
-}
-
-.login-password-wrapper input {
   width: 100%;
-  padding: 12px 5px 12px 10px;
 }
 
 .password-toggle-icon {
@@ -91,69 +70,63 @@ form > .login-to-home-btn {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: white;
+  color: #888;
   font-size: 18px;
 }
 
-@media screen and (max-width: 896px) {
-  .login-form {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 25px;
-    left: 0px;
-    top: 30%;
-    transform: translate(-0%, -0%);
-  
-  }
-
-  .login-logo {
-    left: 1px;
-  }
-
-  .login-form h1 {
-    width: 100%;
-    text-align: start;
-    margin-right: 20px;
-  }
-
-  .login-btn {
-    width: 80%;
-  }
-  
-  form > .login-to-home-btn {
-    width: 395px;
-    
-  }
-
-  .login-password-wrapper {
-    width: 100%;
-    margin-right: 25px;
-  }
-
-  .login-password-wrapper input {
-    width: 100%;
-    padding: 12px 13px 12px 10px;
-  }
+.password-toggle-icon:hover {
+  color: white;
 }
 
 .form-options {
   display: flex;
-  align-items: center;
-  margin: 10px 0;
-  font-size: 14px;
-  color: #b3b3b3;
-}
-
-.remember-me input {
-  margin-right: 8px;
-  width: 14px;
-  height: 14px;
-  accent-color: #e50914;
+  justify-content: flex-start;
+  align-items: flex-start;
+ 
 }
 
 .remember-me {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+}
+
+.login-to-home-btn {
+  margin-top: 10px;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  background: #e50914;
+  border-radius: 8px;
+  color: white;
+  font-size: 17px;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.login-to-home-btn:hover {
+  background: #f6121d;
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    width: 90%;
+    background-color: #000;
+  }
+
+  .login-logo {
+    width: 130px;
+  }
+
+  .login-form h1 {
+    font-size: 24px;
+  }
+
+  .login-to-home-btn {
+    font-size: 16px;
+  }
 }
