@@ -215,6 +215,7 @@
 @media (max-width: 900px) {
   .reasons-grid {
     grid-template-columns: repeat(2, 1fr);
+    padding: 15px;
   }
 }
 
@@ -226,13 +227,15 @@
   .reasons-title {
     font-size: 2rem;
   }
+
+  .reason-card {
+  background: linear-gradient(135deg, #e50914 0%, #7b3030 90%);
+  }
+
+  .reason-card p {
+    font-size: 20px;
+  }
 }
 
 
-/* FAQ */
 
-.faq {
-  width: 100%;
-  height: 400px;
-  background-color: blue;
-}
