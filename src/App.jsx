@@ -14,6 +14,7 @@ import Movies from "./pages/Movies";
 import NewPopular from "./pages/NewPopular";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/Footer"
+import FilmDataXFAQ from "./pages/FilmDataXFAQ"
 
 function App() {
   const logout = useAuthStore((state) => state.logout);
@@ -64,6 +65,15 @@ function App() {
             <ProtectedRoute>
               <NewPopular onLogout={logout} />
               <Footer/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/filmDataXFAQ"
+          element={
+            <ProtectedRoute>
+              <FilmDataXFAQ onLogout={logout} />
+              
             </ProtectedRoute>
           }
         />
