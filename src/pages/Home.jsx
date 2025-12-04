@@ -1,5 +1,6 @@
 import React from "react";
 import MainNavbar from "../components/MainNavbar";
+import MoviesApi from "../Api/MoviesApi";
 import "./Home.css";
 
 function Home({ onLogout }) {
@@ -7,9 +8,7 @@ function Home({ onLogout }) {
     <>
       <MainNavbar onLogout={onLogout} />
 
-      <div className="home-container">
-        <h1>Welcome to Netflix Home Page</h1>
-      </div>
+    <MoviesApi/>
     </>
   );
 }
