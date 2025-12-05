@@ -29,6 +29,7 @@
   left: 40px;
   color: white;
   animation: fadeIn 1s;
+
 }
 
 .movie-title {
@@ -80,15 +81,22 @@ gap: 20px;
 
 @media screen and (max-width:896px) {
     .movie-container {
-        height: 700px;
+        height: 650px;
     }
+
+    
+.movie-content {
+  left: 10px;
+  bottom: 10px;
+}
     .movie-overview  {
         width: 98%;
     }
 
     .movies-wrapper > .btn_view {
-        left: 29rem;
-        top: 50rem;
+        /* left: 29rem; */
+        left: 15rem;
+        top: 48rem;
         font-size: 15px;
     }
 }

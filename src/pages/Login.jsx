@@ -1,10 +1,104 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { FaEye, FaEyeSlash } from "react-icons/fa";
+// import useAuthStore from "../store/authStore";
+// import { Link } from "react-router-dom";
+// import "./Login.css";
+// import logo from "../assets/25cdbe40-0c0a-492a-b822-f653bc3c94f0-removebg-preview.png";
+
+// function Login() {
+//   const navigate = useNavigate();
+//   const login = useAuthStore((state) => state.login);
+
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [rememberMe, setRememberMe] = useState(false); 
+//   const [error, setError] = useState("");
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     const success = login(email, password);
+
+//     if (success) {
+//       if (rememberMe) {
+//         localStorage.setItem("rememberedEmail", email);
+//       } else {
+//         localStorage.removeItem("rememberedEmail");
+//       }
+//       navigate("/home");
+//     } else {
+//       setError("Invalid email or password!");
+//     }
+//   };
+
+//   return (
+//     <div className="login-container">
+// <Link to="/signup">
+//   <img src={logo} alt="Netflix Logo" className="login-logo" />
+// </Link>
+
+
+//       <form className="login-form" onSubmit={handleSubmit}>
+//         <h1>Sign In</h1>
+
+//         {error && <p style={{ color: "red" }}>{error}</p>}
+
+//         <input
+//           type="email"
+//           placeholder="Email"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//           required
+//         />
+
+        
+//         <div className="login-password-wrapper">
+//           <input
+//             type={showPassword ? "text" : "password"}
+//             placeholder="Password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             required
+//           />
+//           <span
+//             className="password-toggle-icon"
+//             onClick={() => setShowPassword(!showPassword)}
+//           >
+//             {showPassword ? <FaEyeSlash /> : <FaEye />}
+//           </span>
+//         </div>
+
+        
+//         <div className="form-options">
+//           <label className="remember-me">
+//             <input
+//               type="checkbox"
+//               checked={rememberMe}
+//               onChange={() => setRememberMe(!rememberMe)}
+//             />
+//             Remember me
+//           </label>
+//         </div>
+
+//         <button type="submit" className="login-to-home-btn">Sign In</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default Login;
+
+
+
+
+import React, { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import useAuthStore from "../store/authStore";
-import { Link } from "react-router-dom";
-import "./Login.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import logo from "../assets/25cdbe40-0c0a-492a-b822-f653bc3c94f0-removebg-preview.png";
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -12,33 +106,42 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false); 
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberedEmail");
+    if (savedEmail) {
+      setEmail(savedEmail);
+      setRememberMe(true);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const success = login(email, password);
 
-    if (success) {
-      if (rememberMe) {
-        localStorage.setItem("rememberedEmail", email);
-      } else {
-        localStorage.removeItem("rememberedEmail");
-      }
-      navigate("/home");
-    } else {
+    if (!success) {
       setError("Invalid email or password!");
+      return;
     }
+
+    if (rememberMe) {
+      localStorage.setItem("rememberedEmail", email);
+    } else {
+      localStorage.removeItem("rememberedEmail");
+    }
+
+    navigate("/home");
   };
 
   return (
     <div className="login-container">
-<Link to="/signup">
-  <img src={logo} alt="Netflix Logo" className="login-logo" />
-</Link>
-
+      <Link to="/signup">
+        <img src={logo} alt="Netflix Logo" className="login-logo" />
+      </Link>
 
       <form className="login-form" onSubmit={handleSubmit}>
         <h1>Sign In</h1>
@@ -47,13 +150,12 @@ function Login() {
 
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
 
-        
         <div className="login-password-wrapper">
           <input
             type={showPassword ? "text" : "password"}
@@ -70,7 +172,6 @@ function Login() {
           </span>
         </div>
 
-        
         <div className="form-options">
           <label className="remember-me">
             <input
@@ -82,11 +183,14 @@ function Login() {
           </label>
         </div>
 
-        <button type="submit" className="login-to-home-btn">Sign In</button>
+        <button type="submit" className="login-to-home-btn">
+          Sign In
+        </button>
       </form>
     </div>
   );
 }
 
 export default Login;
+
 

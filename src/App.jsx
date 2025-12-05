@@ -16,6 +16,11 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/Footer"
 import FilmDataXFAQ from "./pages/FilmDataXFAQ"
 import MoviesApi from "./Api/MoviesApi"
+import Trending from "./Api/Trending"
+import UpComing from "./Api/UpComing";
+import TopRated from "./Api/TopRated";
+import DiscoverMovies from "./Api/DiscoverMovies";
+import TvShows from "./Api/TvShows";
 
 function App() {
   const logout = useAuthStore((state) => state.logout);
@@ -83,6 +88,51 @@ function App() {
           element={
             <ProtectedRoute>
               <MoviesApi onLogout={logout} />
+              
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/trending"
+          element={
+            <ProtectedRoute>
+              <Trending onLogout={logout} />
+              
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/upComing"
+          element={
+            <ProtectedRoute>
+              <UpComing onLogout={logout} />
+              
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/topRated"
+          element={
+            <ProtectedRoute>
+              <TopRated onLogout={logout} />
+              
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/discoverMovies"
+          element={
+            <ProtectedRoute>
+              <DiscoverMovies onLogout={logout} />
+              
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tvShows"
+          element={
+            <ProtectedRoute>
+              <TvShows onLogout={logout} />
               
             </ProtectedRoute>
           }

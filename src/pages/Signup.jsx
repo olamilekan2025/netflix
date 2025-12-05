@@ -1,13 +1,112 @@
-import React, { useState } from "react"; 
+// import React, { useState } from "react"; 
+// import { useNavigate, Link } from "react-router-dom";
+// import { FaEye, FaEyeSlash } from "react-icons/fa";   
+// import useAuthStore from "../store/authStore"; 
+// import "./Signup.css";
+// import logo from "../assets/25cdbe40-0c0a-492a-b822-f653bc3c94f0-removebg-preview.png";
+
+// function Signup() {
+//   const navigate = useNavigate();
+//   const signup = useAuthStore(state => state.signup);
+
+//   const [formData, setFormData] = useState({
+//     fullName: "",
+//     email: "",
+//     password: "",
+//   });
+
+//   const [error, setError] = useState("");
+//   const [showPassword, setShowPassword] = useState(false); 
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData(prev => ({ ...prev, [name]: value }));
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     const success = signup(formData.fullName, formData.email, formData.password);
+//     if (!success) {
+//       setError("User already exists!");
+//       return;
+//     }
+
+//     alert("Account created successfully! Please login.");
+//     navigate("/login");
+//   };
+
+//   return (
+//     <div className="signup-container">
+//       <Link to="/home">
+//         <img src={logo} alt="Netflix Logo" className="signup-logo" />
+//       </Link>
+
+//       <form className="signup-form" onSubmit={handleSubmit}>
+//         <h1>Sign Up</h1>
+
+//         {error && <p style={{ color: "red" }}>{error}</p>}
+//         <input
+//           type="text"
+//           name="fullName"
+//           placeholder="Full Name"
+//           value={formData.fullName}
+//           onChange={handleChange}
+//           required
+//         />
+
+//         <input
+//           type="email"
+//           name="email"
+//           placeholder="Email"
+//           value={formData.email}
+//           onChange={handleChange}
+//           required
+//         />
+
+       
+//         <div className="password-wrapper">
+//           <input
+//             type={showPassword ? "text" : "password"}
+//             name="password"
+//             placeholder="Password"
+//             value={formData.password}
+//             onChange={handleChange}
+//             required
+//           />
+
+//           <span
+//             className="password-toggle-icon"
+//             onClick={() => setShowPassword(!showPassword)}
+//           >
+//             {showPassword ? <FaEyeSlash /> : <FaEye />}
+//           </span>
+//         </div>
+
+//         <button type="submit" className="creating-btn">Sign Up</button>
+
+//         <p className="login-link">
+//           Already have an account? <Link to="/login">Login</Link>
+//         </p>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default Signup;
+
+
+
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa";   
-import useAuthStore from "../store/authStore"; 
-import "./Signup.css";
+import useAuthStore from "../store/authStore";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import logo from "../assets/25cdbe40-0c0a-492a-b822-f653bc3c94f0-removebg-preview.png";
+import "./Signup.css";
 
 function Signup() {
   const navigate = useNavigate();
-  const signup = useAuthStore(state => state.signup);
+  const signup = useAuthStore((state) => state.signup);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -15,30 +114,35 @@ function Signup() {
     password: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const success = signup(formData.fullName, formData.email, formData.password);
+    const success = signup(
+      formData.fullName,
+      formData.email,
+      formData.password
+    );
+
     if (!success) {
       setError("User already exists!");
       return;
     }
 
-    alert("Account created successfully! Please login.");
+    alert("Account created! You can login now.");
     navigate("/login");
   };
 
   return (
     <div className="signup-container">
-      <Link to="/home">
+      <Link to="/">
         <img src={logo} alt="Netflix Logo" className="signup-logo" />
       </Link>
 
@@ -46,6 +150,7 @@ function Signup() {
         <h1>Sign Up</h1>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
+
         <input
           type="text"
           name="fullName"
@@ -58,13 +163,12 @@ function Signup() {
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Email address"
           value={formData.email}
           onChange={handleChange}
           required
         />
 
-       
         <div className="password-wrapper">
           <input
             type={showPassword ? "text" : "password"}
@@ -83,10 +187,12 @@ function Signup() {
           </span>
         </div>
 
-        <button type="submit" className="creating-btn">Sign Up</button>
+        <button type="submit" className="creating-btn">
+          Sign Up
+        </button>
 
         <p className="login-link">
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/login">Sign In</Link>
         </p>
       </form>
     </div>
@@ -94,7 +200,6 @@ function Signup() {
 }
 
 export default Signup;
-
 
 
 
