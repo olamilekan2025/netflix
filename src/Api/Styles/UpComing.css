@@ -12,6 +12,7 @@
   font-weight: 700;
   margin-bottom: 22px;
   letter-spacing: -0.5px;
+  color: #fff;
 }
 
 .arrow {
@@ -128,8 +129,12 @@
 }
 
 @media screen and (max-width:896px) {
+  .section-title {
+    font-size: 20px;
+   
+  }
     .btn_view {
-        left: 15rem;
+        left: 13rem;
         font-size: 15px;
     }
 }

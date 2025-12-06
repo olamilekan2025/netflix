@@ -128,11 +128,16 @@
 }
 
 @media screen and (max-width:896px) {
+    .toprated-section-title {
+    font-size: 20px;
+   
+  }
     .toprated-btn-view {
         left: 15rem;
     }
-    .toprated-btn_view {
-        left: 15rem;
+    .toprated-btn-view {
+        left: 13rem;
         font-size: 15px;
+       
     }
 }

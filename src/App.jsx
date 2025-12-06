@@ -21,6 +21,7 @@ import UpComing from "./Api/UpComing";
 import TopRated from "./Api/TopRated";
 import DiscoverMovies from "./Api/DiscoverMovies";
 import TvShows from "./Api/TvShows";
+import MovieDetails from "./components/MovieDetails";
 
 function App() {
   const logout = useAuthStore((state) => state.logout);
@@ -133,6 +134,15 @@ function App() {
           element={
             <ProtectedRoute>
               <TvShows onLogout={logout} />
+              
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/movie/:id"
+          element={
+            <ProtectedRoute>
+              <MovieDetails onLogout={logout} />
               
             </ProtectedRoute>
           }
