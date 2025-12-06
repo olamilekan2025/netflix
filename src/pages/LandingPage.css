@@ -135,7 +135,7 @@
 .btn-view-all-signup  {
   width: 15%;
   position: relative;
-  /* background-color:; */
+ 
    background: linear-gradient(90deg, #e50914, #000,#e50914); 
   left: 30rem;
   padding: 12px;
@@ -242,12 +242,18 @@
 }
 
 @media (max-width: 600px) {
+
+  .btn-view-all-signup {
+    width: 90%;
+    left: 1rem;
+  }
   .reasons-grid {
     grid-template-columns: 1fr;
   }
 
   .reasons-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    
   }
 
   .reason-card {
