@@ -123,6 +123,27 @@
   }
 }
 
+
+
+
+.upComing-container {
+  background-color: #000;
+  position: relative;
+  padding: 0px 50px;
+}
+
+.btn-view-all-signup  {
+  width: 15%;
+  position: relative;
+  /* background-color:; */
+   background: linear-gradient(90deg, #e50914, #000,#e50914); 
+  left: 30rem;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+}
+
 /* MORE REASONS TO JOIN FILMDATAX */
 
 .moreReasons {

@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,9 +10,9 @@ import "./Styles/DiscoverMovies.css";
 
 const DiscoverMovies = () => {
   const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
   const API_KEY = "00cd2db9ac091981263a55f733084128";
 
   useEffect(() => {
@@ -23,15 +25,12 @@ const DiscoverMovies = () => {
         setItems(data.results || []);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchDiscover();
   }, []);
 
-  if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error: {error}</p>;
 
   const settings = {
@@ -48,14 +47,13 @@ const DiscoverMovies = () => {
     responsive: [
       { breakpoint: 1600, settings: { slidesToShow: 5 } },
       { breakpoint: 1300, settings: { slidesToShow: 4 } },
-      { breakpoint: 992, settings: { slidesToShow: 2} },
+      { breakpoint: 992, settings: { slidesToShow: 3 } },
       { breakpoint: 768, settings: { slidesToShow: 2 } },
     ],
   };
 
- 
-  const handleViewMore = () => {
-    window.open("https://www.themoviedb.org/discover/movie", "_blank");
+  const openMovieDetails = (item) => {
+    navigate(`/movie/${item.id}`);
   };
 
   return (
@@ -64,7 +62,11 @@ const DiscoverMovies = () => {
 
       <Slider {...settings}>
         {items.map((item) => (
-          <div className="card" key={item.id}>
+          <div
+            className="card"
+            key={item.id}
+            onClick={() => openMovieDetails(item)}
+          >
             <div className="card-image">
               <img
                 src={
@@ -83,10 +85,6 @@ const DiscoverMovies = () => {
           </div>
         ))}
       </Slider>
-
-      <button className="btn_view" onClick={handleViewMore}>
-        VIEW MORE
-      </button>
     </div>
   );
 };
@@ -104,3 +102,4 @@ const PrevArrow = ({ onClick }) => (
 );
 
 export default DiscoverMovies;
+

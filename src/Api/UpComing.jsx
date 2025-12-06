@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +11,7 @@ const UpComing = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const API_KEY = "00cd2db9ac091981263a55f733084128";
 
@@ -45,17 +47,10 @@ const UpComing = () => {
     pauseOnHover: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    responsive: [
-      { breakpoint: 1600, settings: { slidesToShow: 5 } },
-      { breakpoint: 1300, settings: { slidesToShow: 4 } },
-      { breakpoint: 992, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-    ],
   };
 
-  // Open TMDB Upcoming movies page
-  const handleViewMore = () => {
-    window.open("https://www.themoviedb.org/movie/upcoming", "_blank");
+  const openMovieDetails = (id) => {
+    navigate(`/movie/${id}`);
   };
 
   return (
@@ -64,7 +59,11 @@ const UpComing = () => {
 
       <Slider {...settings}>
         {items.map((item) => (
-          <div className="card" key={item.id}>
+          <div
+            className="card"
+            key={item.id}
+            onClick={() => openMovieDetails(item.id)}
+          >
             <div className="card-image">
               <img
                 src={
@@ -74,7 +73,7 @@ const UpComing = () => {
                 }
                 alt={item.title}
               />
-              {/* Dark overlay on hover */}
+
               <div className="card-overlay"></div>
               <div className="hover-info">
                 <h5>{item.title}</h5>
@@ -84,10 +83,6 @@ const UpComing = () => {
           </div>
         ))}
       </Slider>
-
-      <button className="btn_view" onClick={handleViewMore}>
-        VIEW MORE
-      </button>
     </div>
   );
 };

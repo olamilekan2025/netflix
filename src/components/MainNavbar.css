@@ -9,7 +9,7 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  gap: 15rem;
+  gap: 22rem;
   padding-top: 10px;
 }
 
@@ -103,7 +103,7 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  gap: 6rem;
+  gap: 8rem;
 }
 
 .nav-logo  {

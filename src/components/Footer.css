@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
   width: 100%;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
@@ -97,4 +97,65 @@
   .footer-social a {
     font-size: 25px;
   }
+} */
+
+
+
+.footer {
+  background: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 45px 20px;
+  border-top: 1px solid #222;
+}
+
+.footer-logo {
+  width: 140px;
+  margin-bottom: 15px;
+}
+
+.footer-text {
+  max-width: 450px;
+  margin: 0 auto 20px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #bbb;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  
+}
+
+.footer-social a {
+  color: #fff;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 8px; */
+  border-radius: 50%;
+  background: #111;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  background: #fff;
+  color: #000;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: #888;
+
+  
+}
+
+.footer-copy > span {
+  color: red;
 }

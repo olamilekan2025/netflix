@@ -23,8 +23,8 @@ function MainNavbar({ onLogout }) {
       
       <div className={isMobile ? "navbar mobile-active" : "navbar"}>
         <NavLink to="/home" className="nav-link">Home</NavLink>
-        <NavLink to="/shows" className="nav-link">Shows</NavLink>
-        <NavLink to="/movies" className="nav-link">Movies</NavLink>
+        {/* <NavLink to="/shows" className="nav-link">Shows</NavLink> */}
+        {/* <NavLink to="/movies" className="nav-link">Movies</NavLink> */}
         <NavLink to="/new-popular" className="nav-link">New & Popular</NavLink>
 
         

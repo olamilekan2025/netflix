@@ -147,6 +147,17 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/tv/:id"
+          element={
+            <ProtectedRoute>
+              <MovieDetails onLogout={logout} />
+              
+            </ProtectedRoute>
+          }
+        />
+
+      
 
       </Routes>
     </Router>

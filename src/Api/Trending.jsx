@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,9 +10,9 @@ import "./Styles/Trending.css";
 
 const Trending = () => {
   const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
   const API_KEY = "00cd2db9ac091981263a55f733084128";
 
   useEffect(() => {
@@ -23,15 +25,12 @@ const Trending = () => {
         setItems(data.results || []);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchTrending();
   }, []);
 
-  if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">Error: {error}</p>;
 
   const settings = {
@@ -47,15 +46,18 @@ const Trending = () => {
     prevArrow: <PrevArrow />,
     responsive: [
       { breakpoint: 1600, settings: { slidesToShow: 5 } },
-      { breakpoint: 1300, settings: { slidesToShow: 4} },
+      { breakpoint: 1300, settings: { slidesToShow: 4 } },
       { breakpoint: 992, settings: { slidesToShow: 3 } },
       { breakpoint: 768, settings: { slidesToShow: 2 } },
     ],
   };
 
-  // FIXED: Open TMDB Trending page
-  const handleViewMore = () => {
-    window.open("https://www.themoviedb.org/trending", "_blank");
+  const openMovieDetails = (item) => {
+    if (item.media_type === "movie") {
+      navigate(`/movie/${item.id}`);
+    } else {
+      navigate(`/tv/${item.id}`);
+    }
   };
 
   return (
@@ -64,7 +66,11 @@ const Trending = () => {
 
       <Slider {...settings}>
         {items.map((item) => (
-          <div className="card" key={item.id}>
+          <div
+            className="card"
+            key={item.id}
+            onClick={() => openMovieDetails(item)}
+          >
             <div className="card-image">
               <img
                 src={
@@ -74,7 +80,6 @@ const Trending = () => {
                 }
                 alt={item.title || item.name}
               />
-              {/* Dark overlay on hover */}
               <div className="card-overlay"></div>
               <div className="hover-info">
                 <h5>{item.title || item.name}</h5>
@@ -84,10 +89,6 @@ const Trending = () => {
           </div>
         ))}
       </Slider>
-
-      <button className="btn_view" onClick={handleViewMore}>
-        VIEW MORE
-      </button>
     </div>
   );
 };

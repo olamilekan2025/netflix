@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import { useParams, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import MainNavbar from "./MainNavbar";
@@ -7,6 +9,7 @@ import "./MovieDetails.css";
 const API_KEY = "00cd2db9ac091981263a55f733084128";
 
 function MovieDetails() {
+  const navigate = useNavigate ()
   const { id } = useParams();
   const location = useLocation();
   const [movie, setMovie] = useState(location.state || null);
@@ -40,7 +43,11 @@ function MovieDetails() {
           />
 
           <div className="details-info">
-            <h1 className="details-title">{movie.title}</h1>
+         <div className="home-tittle">
+
+              <Link to="/home"><IoMdArrowRoundBack style={{color:"white", fontSize:"40px"}} /></Link>
+              <h1 className="details-title">{movie.title}</h1>
+         </div>
 
             <div className="details-meta">
               <span className="rating">⭐ {movie.vote_average}</span>
