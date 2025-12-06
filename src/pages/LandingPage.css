@@ -243,6 +243,10 @@
 
 @media (max-width: 600px) {
 
+  .upComing-container{
+    padding: 0px;
+  }
+
   .btn-view-all-signup {
     width: 90%;
     left: 1rem;
@@ -252,7 +256,11 @@
   }
 
   .reasons-title {
+    width: 100%;
+  justify-content: center;
+  align-items: center;
     font-size: 1.8rem;
+     margin-left: 24px;
     
   }
 
